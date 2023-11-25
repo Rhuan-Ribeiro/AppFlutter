@@ -64,8 +64,10 @@ class _DestinoState extends State<Destino> {
 
   void sub_dias() {
     setState(() {
-      n_dias = n_dias - 1;
-      calctotal();
+      if (n_dias != 0) {
+        n_dias = n_dias - 1;
+        calctotal();
+      }
     });
   }
 
@@ -134,9 +136,8 @@ class _DestinoState extends State<Destino> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
               Text(
-                "R\$ ${widget.valorp}/dia - R\$ ${widget.valorp}/pessoa",
+                "R\$ ${widget.valord}/dia - R\$ ${widget.valorp}/pessoa",
                 style: TextStyle(
-                  fontFamily: 'Baloo Bhai 2',
                   color: Colors.blueGrey,
                   fontSize: 25,
                   decoration: TextDecoration.underline,
@@ -151,7 +152,7 @@ class _DestinoState extends State<Destino> {
               children: [
                 Text(
                   "Qtd. de Pessoas:",
-                  style: TextStyle(fontFamily: 'Baloo Bhai 2', fontSize: 25),
+                  style: TextStyle(fontSize: 25),
                 ),
                 Container(
                   width: 150,
@@ -166,8 +167,7 @@ class _DestinoState extends State<Destino> {
                           child: Icon(Icons.remove)),
                       Text(
                         "$n_pessoas",
-                        style:
-                            TextStyle(fontFamily: 'Baloo Bhai 2', fontSize: 18),
+                        style: TextStyle(fontSize: 18),
                       ),
                       ElevatedButton(
                           style: raisedButtonStyle,
@@ -188,7 +188,7 @@ class _DestinoState extends State<Destino> {
               children: [
                 Text(
                   "Qtd. de Dias:",
-                  style: TextStyle(fontFamily: 'Baloo Bhai 2', fontSize: 25),
+                  style: TextStyle(fontSize: 25),
                 ),
                 Container(
                   width: 150,
@@ -203,8 +203,7 @@ class _DestinoState extends State<Destino> {
                           child: Icon(Icons.remove)),
                       Text(
                         "$n_dias",
-                        style:
-                            TextStyle(fontFamily: 'Baloo Bhai 2', fontSize: 18),
+                        style: TextStyle(fontSize: 18),
                       ),
                       ElevatedButton(
                           style: raisedButtonStyle,
@@ -225,7 +224,7 @@ class _DestinoState extends State<Destino> {
               children: [
                 Text(
                   "Valor Total: R\$ ${total.toStringAsFixed(2)}",
-                  style: TextStyle(fontFamily: 'Baloo Bhai 2', fontSize: 25),
+                  style: TextStyle(fontSize: 25),
                 ),
                 ElevatedButton(
                   onPressed: () {
